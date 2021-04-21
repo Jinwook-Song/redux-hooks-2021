@@ -10,8 +10,11 @@ const UserContextProvider = ({ children }) => {
   const logUserIn = () => {
     setUser({ ...user, loggedIn: true });
   };
+  const logUserOut = () => {
+    setUser({ ...user, loggedIn: false });
+  };
   return (
-    <UserContext.Provider value={{ user, fn: { logUserIn } }}>
+    <UserContext.Provider value={{ user, fn: { logUserIn, logUserOut } }}>
       {children}
     </UserContext.Provider>
   );
