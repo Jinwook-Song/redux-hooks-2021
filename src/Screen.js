@@ -1,19 +1,16 @@
-import Header from "./Header";
-import { useFns, useUser } from "./context";
+import React from "react";
+import { useSetLang, useTranslation } from "./context";
 
-const Screen = () => {
-  const { logUserIn, logUserOut } = useFns();
-  const { loggedIn } = useUser();
-
+// eslint-disable-next-line
+export default () => {
+  const setLang = useSetLang();
+  const hyperTranslate = useTranslation();
   return (
-    <div>
-      <Header />
-      <h1>First screen</h1>
-      <button onClick={loggedIn ? logUserOut : logUserIn}>
-        {loggedIn ? "Logout" : "Login"}
+    <>
+      <h1>{hyperTranslate("Hello!")}</h1>
+      <button onClick={() => setLang("es")}>
+        {hyperTranslate("Translate")}
       </button>
-    </div>
+    </>
   );
 };
-
-export default Screen;
